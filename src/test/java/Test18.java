@@ -32,7 +32,6 @@ public class Test18 {
         List<List<Integer>> res = task.fourSum(new int[]{-3, -2, -1, 0, 0, 1, 2, 3}, 0);
         System.out.println(res);
         //[[-3,-2,2,3],[-3,-1,1,3],[-3,0,0,3],[-3,0,1,2],[-2,-1,0,3],[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
-        //[-2,-1,0,3]???
         assertEquals(List.of(
                 List.of(-3, -2, 2, 3),
                 List.of(-3, -1, 1, 3),
@@ -52,7 +51,6 @@ public class Test18 {
         System.out.println(res);
         assertEquals(List.of(), res);
     }
-
 
     private void assertEquals(List<List<Integer>> expected, List<List<Integer>> actual) {
         Assertions.assertEquals(expected.size(), actual.size());

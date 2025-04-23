@@ -15,17 +15,23 @@ public class Task18 {
 
         Arrays.sort(nums);
 
-        for (int i = 0; i < nums.length - 3; i++) {
+        int n = nums.length;
+
+        if (n < 4 || target < 4L * nums[0] || target > 4L * nums[n - 1]) return res;
+
+        for (int i = 0; i < n - 3; i++) {
+            if (nums[i] > target && nums[i] >= 0) break;
             if (i > 0 && nums[i] == nums[i - 1]) continue;
 
-            for (int j = i + 1; j < nums.length - 2; j++) {
+            for (int j = i + 1; j < n - 2; j++) {
+                if (nums[i] + nums[j] > target && nums[j] >= 0) break;
                 if (j > i + 1 && nums[j] == nums[j - 1]) continue;
 
                 int l = j + 1;
-                int r = nums.length - 1;
+                int r = n - 1;
 
                 while (l < r) {
-                    long sum = (long) nums[i] + nums[j] + nums[l] + nums[r] ;
+                    long sum = (long) nums[i] + nums[j] + nums[l] + nums[r];
 
                     if (sum < target) {
                         l++;
