@@ -6,7 +6,7 @@ import org.mockito.Mockito;
 
 import java.util.List;
 
-import static org.example.utils.Util.generate;
+import static org.example.utils.Util.generateNodeList;
 
 public class Test19 {
 
@@ -15,7 +15,7 @@ public class Test19 {
     @Test
     public void test_1() {
         ListNode res = task.removeNthFromEnd(
-                generate(List.of(1, 2, 3, 4, 5)), 2);
+                generateNodeList(List.of(1, 2, 3, 4, 5)), 2);
 
         Assertions.assertEquals(1, res.val);
         Assertions.assertEquals(2, res.next.val);
@@ -26,7 +26,7 @@ public class Test19 {
     @Test
     public void test_2() {
         ListNode res = task.removeNthFromEnd(
-                generate(List.of(1)), 1);
+                generateNodeList(List.of(1)), 1);
 
         Assertions.assertEquals(null, res);
     }
@@ -34,7 +34,7 @@ public class Test19 {
     @Test
     public void test_3() {
         ListNode res = task.removeNthFromEnd(
-                generate(List.of(1, 2)), 1);
+                generateNodeList(List.of(1, 2)), 1);
 
         Assertions.assertEquals(1, res.val);
         Assertions.assertEquals(null, res.next);
@@ -43,7 +43,7 @@ public class Test19 {
     @Test
     public void test_4() {
         ListNode res = task.removeNthFromEnd(
-                generate(List.of(1, 2)), 2);
+                generateNodeList(List.of(1, 2)), 2);
 
         Assertions.assertEquals(2, res.val);
         Assertions.assertEquals(null, res.next);
