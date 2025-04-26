@@ -1,4 +1,4 @@
-import org.example.Util;
+import org.example.utils.Util;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

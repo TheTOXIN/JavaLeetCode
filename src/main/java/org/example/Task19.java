@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.utils.ListNode;
+
 /**
  * Вам дан указатель head связного списка,
  * удалите nый узел с конца списка
@@ -30,22 +32,5 @@ public class Task19 {
         }
 
         return r;
-    }
-
-    public static class ListNode {
-        public int val;
-        public ListNode next;
-
-        public ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 }

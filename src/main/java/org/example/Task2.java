@@ -1,16 +1,9 @@
 package org.example;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import org.example.utils.ListNode;
 
 public class Task2 {
 
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class ListNode {
-        public int val;
-        public ListNode next;
-    }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode res = new ListNode();
