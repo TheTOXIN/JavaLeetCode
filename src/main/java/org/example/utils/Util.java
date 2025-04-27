@@ -67,4 +67,22 @@ public class Util {
         }
         System.out.println();
     }
+
+    public static <T extends Comparable<? super T>> boolean compareToList(List<T> list1, List<T> list2) {
+        if (list1 == null || list2 == null) {
+            return list1 == list2;
+        }
+
+        if (list1.size() != list2.size()) {
+            return false;
+        }
+
+        List<T> copy1 = List.copyOf(list1);
+        List<T> copy2 = List.copyOf(list2);
+
+        List<T> sorted1 = copy1.stream().sorted().toList();
+        List<T> sorted2 = copy2.stream().sorted().toList();
+
+        return sorted1.equals(sorted2);
+    }
 }
