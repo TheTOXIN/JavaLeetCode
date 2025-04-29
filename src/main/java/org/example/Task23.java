@@ -54,6 +54,7 @@ public class Task23 {
     }
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        System.out.println("MERGE");
         if (list1 == null && list2 == null) return null;
 
         if (list1 == null) return list2;

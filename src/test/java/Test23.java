@@ -14,11 +14,10 @@ public class Test23 {
     @Test
     public void test_1() {
         ListNode actual = task.mergeKLists(new ListNode[]{
-                        Util.generateNodeList(List.of(1, 4, 5)),
-                        Util.generateNodeList(List.of(1, 3, 4)),
-                        Util.generateNodeList(List.of(2, 6))
-                }
-        );
+                Util.generateNodeList(List.of(1, 4, 5)),
+                Util.generateNodeList(List.of(1, 3, 4)),
+                Util.generateNodeList(List.of(2, 6))
+        });
         Util.printListNode(actual);
         ListNode expected = Util.generateNodeList(List.of(1, 1, 2, 3, 4, 4, 5, 6));
         Assertions.assertTrue(Util.compareNodes(actual, expected));
@@ -33,18 +32,16 @@ public class Test23 {
     @Test
     public void test_3() {
         ListNode actual = task.mergeKLists(new ListNode[]{
-                        Util.generateNodeList(List.of()),
-                }
-        );
+                Util.generateNodeList(List.of()),
+        });
         Assertions.assertNull(actual);
     }
 
     @Test
     public void test_4() {
         ListNode actual = task.mergeKLists(new ListNode[]{
-                        Util.generateNodeList(List.of(0, 2, 5)),
-                }
-        );
+                Util.generateNodeList(List.of(0, 2, 5)),
+        });
         Util.printListNode(actual);
         ListNode expected = Util.generateNodeList(List.of(0, 2, 5));
         Assertions.assertTrue(Util.compareNodes(actual, expected));
@@ -53,11 +50,10 @@ public class Test23 {
     @Test
     public void test_5() {
         ListNode actual = task.mergeKLists(new ListNode[]{
-                        Util.generateNodeList(List.of(2)),
-                        Util.generateNodeList(List.of()),
-                        Util.generateNodeList(List.of(-1)),
-                }
-        );
+                Util.generateNodeList(List.of(2)),
+                Util.generateNodeList(List.of()),
+                Util.generateNodeList(List.of(-1)),
+        });
         Util.printListNode(actual);
         ListNode expected = Util.generateNodeList(List.of(-1, 2));
         Assertions.assertTrue(Util.compareNodes(actual, expected));
