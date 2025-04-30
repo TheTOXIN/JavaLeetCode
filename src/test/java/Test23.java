@@ -12,6 +12,23 @@ public class Test23 {
     Task23 task = Mockito.spy(Task23.class);
 
     @Test
+    public void test_0() {
+        ListNode actual = task.mergeKLists(new ListNode[]{
+                Util.generateNodeList(List.of(0)),
+                Util.generateNodeList(List.of(1)),
+                Util.generateNodeList(List.of(2)),
+                Util.generateNodeList(List.of(3)),
+                Util.generateNodeList(List.of(4)),
+                Util.generateNodeList(List.of(5)),
+                Util.generateNodeList(List.of(6)),
+                Util.generateNodeList(List.of(7)),
+                Util.generateNodeList(List.of(8)),
+                Util.generateNodeList(List.of(9))
+        });
+        Util.printListNode(actual);
+    }
+
+    @Test
     public void test_1() {
         ListNode actual = task.mergeKLists(new ListNode[]{
                 Util.generateNodeList(List.of(1, 4, 5)),

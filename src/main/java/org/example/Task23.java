@@ -5,7 +5,6 @@ import org.example.utils.ListNode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.PriorityQueue;
 
 /**
  * Вам дан массив lists с k связными списками,
@@ -15,6 +14,38 @@ import java.util.PriorityQueue;
 public class Task23 {
 
     public ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+
+        while (lists.length > 1) {
+
+            List<ListNode> temp = new ArrayList<>();
+
+            for (int i = 0; i < lists.length; i += 2) {
+                ListNode l1 = lists[i];
+                ListNode l2 = i != lists.length - 1 ? lists[i + 1] : null;
+
+                ListNode merged = mergeTwoLists(l1, l2);
+                temp.add(merged);
+            }
+
+            lists = temp.toArray(ListNode[]::new);
+        }
+
+        return lists[0];
+    }
+
+    private ListNode mergeListsRecursive(ListNode[] lists, int left, int right) {
+        if (left == right) return lists[left];
+
+        int mid = left + (right - left) / 2;
+
+        ListNode l1 = mergeListsRecursive(lists, left, mid);
+        ListNode l2 = mergeListsRecursive(lists, mid + 1, right);
+
+        return mergeTwoLists(l1, l2);
+    }
+
+    public ListNode mergeKListsTest(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
 
         List<Integer> list = new ArrayList<>();
@@ -42,19 +73,18 @@ public class Task23 {
     public ListNode mergeKListsOld(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
 
-        return mergeLists(null, lists, 0);
+        return mergeListsHelper(null, lists, 0);
     }
 
-    public ListNode mergeLists(ListNode head, ListNode[] lists, int index) {
+    public ListNode mergeListsHelper(ListNode head, ListNode[] lists, int index) {
         if (index == lists.length) return head;
 
         ListNode merged = mergeTwoLists(head, lists[index]);
 
-        return mergeLists(merged, lists, index + 1);
+        return mergeListsHelper(merged, lists, index + 1);
     }
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        System.out.println("MERGE");
         if (list1 == null && list2 == null) return null;
 
         if (list1 == null) return list2;
