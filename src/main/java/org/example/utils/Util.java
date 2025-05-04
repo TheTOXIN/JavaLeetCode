@@ -21,26 +21,17 @@ public class Util {
     }
 
     public static ListNode generateNodeList(List<Integer> list) {
-        if (list == null || list.size() == 0) return null;
+        if (list == null || list.isEmpty()) return null;
+
         ListNode head = new ListNode();
-        ListNode prev = null;
-        for (int j = 0; j < list.size(); j++) {
-            Integer i = list.get(j);
-            if (prev == null) {
-                if (j != list.size() - 1) {
-                    prev = new ListNode();
-                }
-                head.val = i;
-                head.next = prev;
-            } else {
-                prev.val = i;
-                if (j != list.size() - 1) {
-                    prev.next = new ListNode();
-                }
-                prev = prev.next;
-            }
+        ListNode temp = head;
+
+        for (Integer integer : list) {
+            temp.next = new ListNode(integer);
+            temp = temp.next;
         }
-        return head;
+
+        return head.next;
     }
 
     public static boolean compareNodes(ListNode head1, ListNode head2) {
