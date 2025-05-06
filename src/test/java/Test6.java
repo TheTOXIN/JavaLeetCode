@@ -66,6 +66,6 @@ public class Test6 {
     @Test
     public void test_8() {
         String res = task.convert("A", 2);
-        Assertions.assertEquals(res, "A@!");
+        Assertions.assertEquals(res, "A");
     }
 }

@@ -1,5 +1,6 @@
 package org.example.utils;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Util {
@@ -18,6 +19,10 @@ public class Util {
         }
 
         return nums;
+    }
+
+    public static ListNode generateNodeList(Integer... ints) {
+        return generateNodeList(Arrays.asList(ints));
     }
 
     public static ListNode generateNodeList(List<Integer> list) {
