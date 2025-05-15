@@ -7,7 +7,27 @@ import java.util.Set;
 
 public class Task3 {
 
+
+
     public int lengthOfLongestSubstring(String s) {
+        Set<Character> set = new HashSet<>();
+        int i = 0, j = 0, maxLen = 0;
+
+        while (j < s.length()) {
+            if (!set.contains(s.charAt(j))) {
+                set.add(s.charAt(j));
+                maxLen = Math.max(maxLen, j - i + 1);
+                j++;
+            } else {
+                set.remove(s.charAt(i));
+                i++;
+            }
+        }
+
+        return maxLen;
+    }
+
+    public int lengthOfLongestSubstringOld(String s) {
         int max = 0;
         int res = 0;
 
@@ -39,7 +59,7 @@ public class Task3 {
 
     public int lengthOfLongestSubstringNew(String s) {
         Set<Character> set = new HashSet<>();
-        int left= 0, right = 0, max = 0;
+        int left = 0, right = 0, max = 0;
 
         while (right < s.length()) {
             char c = s.charAt(right);
