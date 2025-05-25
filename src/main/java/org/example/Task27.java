@@ -1,4 +1,4 @@
-package org.example.utils;
+package org.example;
 
 /**
  * Даны массив целочисленных значений nums и целое число val,
