@@ -13,11 +13,11 @@ public class Test15 {
 
     @Test
     public void test_0() {
-        long l = System.currentTimeMillis();
+        long l = System.nanoTime();
         for (int i = 0; i < 100; i++) {
             test_1();
         }
-        System.out.println(System.currentTimeMillis() - l);
+        System.out.println(System.nanoTime() - l);
     }
 
     @Test

@@ -13,12 +13,12 @@ public class Test14 {
 
     @BeforeAll
     public static void before() {
-        time = System.currentTimeMillis();
+        time = System.nanoTime();
     }
 
     @AfterAll
     public static void after() {
-        System.out.println("TIME: " + (System.currentTimeMillis() - time));
+        System.out.println("TIME: " + (System.nanoTime() - time));
     }
 
     @Test

@@ -69,10 +69,10 @@ public class Test7 {
 
     @Test
     public void test_performance() {
-        long l = System.currentTimeMillis();
+        long l = System.nanoTime();
         for (int i = 0; i < 10000; i++) {
             task.reverse(1234567890);
         }
-        System.out.println(System.currentTimeMillis() - l);
+        System.out.println(System.nanoTime() - l);
     }
 }
