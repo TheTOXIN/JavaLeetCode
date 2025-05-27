@@ -19,9 +19,52 @@ import java.util.*;
 public class Task30 {
 
     public List<Integer> findSubstringNew(String s, String[] words) {
-        List<Integer> res = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
 
-        return res;
+        if (words.length == 0 || s.isEmpty()) return ans;
+
+        int wordLength = words[0].length();
+        int wordCount = words.length;
+
+        HashMap<String, Integer> originalCount = new HashMap<>();
+        for (String word : words) {
+            originalCount.merge(word, 1, Integer::sum);
+        }
+
+        for (int offset = 0; offset < wordLength; offset++) {
+            HashMap<String, Integer> currentCount = new HashMap<>();
+
+            int start = offset;
+            int count = 0;
+
+            for (int end = offset; end + wordLength <= s.length(); end += wordLength) {
+                String currWord = s.substring(end, end + wordLength);
+
+                if (originalCount.containsKey(currWord)) {
+
+                    count++;
+                    currentCount.merge(currWord, 1, Integer::sum);
+
+                    while (currentCount.get(currWord) > originalCount.get(currWord)) {
+                        String startWord = s.substring(start, start + wordLength);
+                        currentCount.merge(startWord, 1, (a, b) -> a - b);
+
+                        start += wordLength;
+                        count--;
+                    }
+
+                    if (count == wordCount) {
+                        ans.add(start);
+                    }
+                } else {
+                    count = 0;
+                    start = end + wordLength;
+                    currentCount.clear();
+                }
+            }
+        }
+
+        return ans;
     }
 
     public List<Integer> findSubstring(String s, String[] words) {
