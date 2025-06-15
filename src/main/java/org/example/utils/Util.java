@@ -1,7 +1,7 @@
 package org.example.utils;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Util {
 
@@ -80,5 +80,23 @@ public class Util {
         List<T> sorted2 = copy2.stream().sorted().toList();
 
         return sorted1.equals(sorted2);
+    }
+
+    public static boolean compareInnerLists(List<List<Integer>> list1, List<List<Integer>> list2) {
+        if (list1 == null && list2 == null) return true;
+        if (list1 == null || list2 == null) return false;
+        if (list1.size() != list2.size()) return false;
+
+        Set<List<Integer>> set1 = list1.stream()
+                .map(ArrayList::new)
+                .peek(Collections::sort)
+                .collect(Collectors.toSet());
+
+        Set<List<Integer>> set2 = list2.stream()
+                .map(ArrayList::new)
+                .peek(Collections::sort)
+                .collect(Collectors.toSet());
+
+        return set1.equals(set2);
     }
 }
