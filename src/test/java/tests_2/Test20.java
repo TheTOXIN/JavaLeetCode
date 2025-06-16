@@ -1,6 +1,6 @@
 package tests_2;
 
-import org.example.tasks_02.Task20;
+import org.example.tasks_2.Task20;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

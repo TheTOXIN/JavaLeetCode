@@ -1,6 +1,6 @@
 package tests_1;
 
-import org.example.tasks_01.Task2;
+import org.example.tasks_1.Task2;
 import org.example.utils.ListNode;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

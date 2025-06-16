@@ -1,6 +1,6 @@
 package tests_1;
 
-import org.example.tasks_01.Task6;
+import org.example.tasks_1.Task6;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

@@ -1,6 +1,6 @@
 package tests_3;
 
-import org.example.tasks_03.Task30;
+import org.example.tasks_3.Task30;
 import org.example.utils.Util;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
